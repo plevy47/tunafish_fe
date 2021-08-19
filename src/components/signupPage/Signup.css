@@ -1,0 +1,27 @@
+.signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.signup .signup-container {
+    width: 400px;
+}
+
+.signup .signup-container h1 {
+    margin: 25px 0 0;
+    font-size: 35px;
+}
+
+.signup .signup-container .signup-container-fields > * {
+    margin-bottom: 5px;
+}
+
+.signup .signup-container .signup-container-footer {
+    margin-top: 30px;
+}
+
+.signup .signup-container .signup-container-fields .ms-TextField {
+    width: 100%;
+}
