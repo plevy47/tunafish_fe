@@ -3,6 +3,8 @@ import SignupField from "./SignupField";
 import "./Signup.css"
 import {PrimaryButton} from "@fluentui/react";
 import NavigationBar from "../header/NavigationBar";
+import {SendRequest} from "../../database/SendRequest";
+import {endpoints} from "../../database/endpoint";
 
 const Signup = () => {
     return (
@@ -22,13 +24,18 @@ const Signup = () => {
                         <SignupField infoType="Password"/>
                         <SignupField infoType="Email"/>
                     </div>
-
                     <div
                         className="signup-container-footer"
                     >
                         <PrimaryButton
                             style={{width: "100%"}}
-                            // onClick={}
+                            onClick={() => {
+                                SendRequest(endpoints.createUser + "?username=johndoe1&password=123456&email=jd@gmail.com", "POST").then((response) => {
+                                    console.log(response)
+                                    console.log(endpoints.create)
+                                })
+                            }}
+
                         >Create Account</PrimaryButton>
                     </div>
                 </div>

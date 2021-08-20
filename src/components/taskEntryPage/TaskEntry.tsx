@@ -1,18 +1,17 @@
 import React from "react";
 import Task from "./Task"
 import {PrimaryButton, TextField, Dropdown, IDropdownOption} from '@fluentui/react/lib';
-import {Link} from "react-router-dom";
 import NavigationBar from "../header/NavigationBar";
+import {SendRequest} from "../../database/SendRequest";
+import {endpoints} from "../../database/endpoint";
 
 const tables: IDropdownOption[] = [
     {key: "Tasks", text: "Tasks"},];
 const table = 'Tasks';
 
-
 const TaskEntry = () => {
     const [text, setText] = React.useState("");
     const [list, setList] = React.useState<string[]>([]);
-    const input = `http://localhost:2222/create?taskName=${text}&table=${table}`;
 
     React.useEffect(() => {
         setText("");
@@ -41,22 +40,12 @@ const TaskEntry = () => {
                 />
 
                 <PrimaryButton
-                    onClick={async () => {
-                        var myHeaders = new Headers();
-
-                        myHeaders.append('Access-Control-Allow-Origin','http://localhost:3000',);
-                        myHeaders.append('Origin','http://localhost:3000',);
-                        myHeaders.append('x-requested-with','XmlHttpRequest',);
-
-
-                        fetch(input,{
-                            method: "POST",
-                            headers: myHeaders
+                    onClick={() => {
+                        SendRequest(endpoints.create, "POST").then((response) => {
+                            console.log(response)
+                            console.log(endpoints.create)
                         })
-                            .then((response) => {
-                                return (response);
-                            })
-                        }}
+                    }}
                 >Create!
                 </PrimaryButton>
                 <div>
