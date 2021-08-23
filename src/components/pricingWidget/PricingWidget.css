@@ -7,5 +7,6 @@
 
 .pricing-widget .pricing-plan {
     display: flex;
+    justify-content: center;
 
 }

@@ -1,13 +1,17 @@
-const server = {
-    port: "2222",
-    url: "http://localhost"
-}
+export const server = {
+  port: '2222',
+  url: 'http://localhost',
+};
+const endpoint = `${server.url}:${server.port}`;
 
-export const endpoint = `${server.url}:${server.port}`
+export const addUser = (
+  username: string,
+  password: string,
+  email: string,
+) => (`${endpoint}/create-user?username=${username}&password=${password}6&email=${email}`);
 
-export const endpoints = {
-    create: `${endpoint}/create`,
-    createUser: `${endpoint}/create-user`
-}
-
-    // ?taskName=ConnectServer&table=Tasks
+// const endpoints = {
+//  createUser: `${endpoint}/create-user?username=${username}&password=${password}6&email=${email}`,
+//   create: `${endpoint}/create`,
+// };
+// ?taskName=ConnectServer&table=Tasks

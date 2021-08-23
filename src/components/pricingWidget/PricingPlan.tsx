@@ -1,27 +1,36 @@
-import React from "react";
-import {PrimaryButton} from "@fluentui/react";
+import React from 'react';
+import { PrimaryButton } from '@fluentui/react';
+import './PricingPlan.css';
 
 const PricingPlan = (props: {
-    planName: string
-    planDescription: string
-    planPrice: number
+  planName: string
+  planDescription: string
+  planPrice: number
 }) => {
-    return(
-        <div>
-            <h2>
-                {props.planName}
-            </h2>
-            <p>
-                {props.planDescription}
-            </p>
-            <h1>
-                ${props.planPrice}
-            </h1>
-            <PrimaryButton>
-                Pay Now
-            </PrimaryButton>
-        </div>
-    );
+  const {
+    planName,
+    planDescription,
+    planPrice,
+  } = props;
+  return (
+    <div
+      className="individual-pricing-plan"
+    >
+      <h2>
+        {planName}
+      </h2>
+      <p>
+        {planDescription}
+      </p>
+      <h1>
+        $
+        {planPrice}
+      </h1>
+      <PrimaryButton>
+        Pay Now
+      </PrimaryButton>
+    </div>
+  );
 };
 
-export default PricingPlan
+export default PricingPlan;

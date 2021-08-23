@@ -1,18 +1,18 @@
-import React from "react";
-import {DefaultButton} from "@fluentui/react";
-import {Link} from "react-router-dom";
+import React from 'react';
+import { DefaultButton } from '@fluentui/react';
+import { Link } from 'react-router-dom';
 
 const NavigationLink = (props: {
-    linkPath: string
-    linkName: string
+  linkPath: string
+  linkName: string
 }) => {
-    return(
-        <Link to={props.linkPath}>
-            <DefaultButton>
-                {props.linkName}
-            </DefaultButton>
-        </Link>
-    )
-}
-
-export default NavigationLink
+  const { linkPath, linkName } = props;
+  return (
+    <Link to={linkPath}>
+      <DefaultButton>
+        {linkName}
+      </DefaultButton>
+    </Link>
+  );
+};
+export default NavigationLink;

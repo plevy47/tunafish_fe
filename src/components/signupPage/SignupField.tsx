@@ -1,26 +1,20 @@
-import React from "react";
-import {TextField} from "@fluentui/react";
+import React from 'react';
+import { TextField } from '@fluentui/react';
 
 const SignupField = (props: {
-    infoType: string
+  label: string
+  method: React.Dispatch<React.SetStateAction<string>>
 }) => {
-    const [text, setText] = React.useState("");
-    React.useEffect(() => {setText("")})
+  const { label, method } = props;
 
-    return (
-        <div style={{
-            display: "flex",
-            width: "100%"
-        }}>
-            <TextField
-                type="text"
-                label={props.infoType}
-                onChange={(event) => {
-                    setText(event.currentTarget.value)
-                }}
-            />
-        </div>
-    );
+  return (
+    <TextField
+      type="text"
+      label={label}
+      onChange={(event) => {
+        method(event.currentTarget.value);
+      }}
+    />
+  );
 };
-
 export default SignupField;

@@ -1,0 +1,11 @@
+.individual-pricing-plan{
+    margin-right: 30px;
+    margin-left: 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+}
